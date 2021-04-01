@@ -1,0 +1,29 @@
+# Describe this function...
+function test() {
+  flyCurve(55, 95, 0, 0, 190, 0, "in");
+  flyCurve(-55, -95, 0, 0, -190, 0, "in");
+  flyCurve(-55, -95, 0, 0, -190, 0, "in");
+  flyCurve(55, 95, 0, 0, 190, 0, "in");
+}
+
+# Describe this function...
+function clover() {
+  setSpeed(100, "in/s");
+  flyCurve(64, 102, 0, 0, 229, 0, "in");
+  flyCurve(-64, -102, 0, 0, -229, 0, "in");
+  flyCurve(-64, -102, 0, 0, -229, 0, "in");
+  flyCurve(64, 102, 0, 0, 229, 0, "in");
+  flyCurve(-64, -102, 0, 0, -229, 0, "in");
+  flyCurve(-64, -102, 0, 0, -229, 0, "in");
+  flyCurve(64, 102, 0, 0, 229, 0, "in");
+  flyCurve(-64, -102, 0, 0, -229, 0, "in");
+}
+
+
+takeOff();
+test();
+land();
+
+flyCurve(-55, -95, 0, 0, -190, 0, "in");
+
+flyCurve(55, 95, 0, 0, 190, 0, "in");
