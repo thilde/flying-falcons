@@ -1,29 +1,16 @@
-# Describe this function...
-function test() {
-  flyCurve(55, 95, 0, 0, 190, 0, "in");
-  flyCurve(-55, -95, 0, 0, -190, 0, "in");
-  flyCurve(-55, -95, 0, 0, -190, 0, "in");
-  flyCurve(55, 95, 0, 0, 190, 0, "in");
-}
 
-# Describe this function...
-function clover() {
-  setSpeed(100, "in/s");
-  flyCurve(64, 102, 0, 0, 229, 0, "in");
-  flyCurve(-64, -102, 0, 0, -229, 0, "in");
-  flyCurve(-64, -102, 0, 0, -229, 0, "in");
-  flyCurve(64, 102, 0, 0, 229, 0, "in");
-  flyCurve(-64, -102, 0, 0, -229, 0, "in");
-  flyCurve(-64, -102, 0, 0, -229, 0, "in");
-  flyCurve(64, 102, 0, 0, 229, 0, "in");
-  flyCurve(-64, -102, 0, 0, -229, 0, "in");
+function Four_Leaf_Clover() {
+  flyCurve(60, 104, 0, 0, 230, 0, "in");
+  flyCurve(-60, -104, 0, 0, -230, 0, "in");
+  flyCurve(60, -104, 0, 0, -230, 0, "in");
+  flyCurve(-60, 104, 0, 0, 230, 0, "in");
+  flyCurve(104, 60, 0, 230, 0, 0, "in");
+  flyCurve(-104, -60, 0, -230, 0, 0, "in");
+  flyCurve(-104, -60, 0, -230, 0, 0, "in");
+  flyCurve(104, 60, 0, 230, 0, 0, "in");
 }
 
 
 takeOff();
-test();
+Four_Leaf_Clover();
 land();
-
-flyCurve(-55, -95, 0, 0, -190, 0, "in");
-
-flyCurve(55, 95, 0, 0, 190, 0, "in");
