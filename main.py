@@ -11,7 +11,7 @@ import numpy as np
 import sys
 import matplotlib.pyplot as plt
 import scipy as sp
-import Code.waypoint_class
+#import Code.waypoint_class
 
 
 # EDIT HERE
@@ -19,10 +19,50 @@ def main_function(waypoints, sock):
 
     # Insert your functions here. If you want to import additional functions that you've created, feel free to do so. However, make sure the 
     # file paths still
+    import socket
+    import threading
+    import time
+    from mpl_toolkits.mplot3d import axes3d
+    import matplotlib.pyplot as plt
+    import numpy as np
 
+    #Set up 3 axies chart
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
 
+    #XYZ data to be graphed
+    X=[0,-60,-60,0,0,  60,60,0,0,   104,334,230,0,  -104,-334,-230,0]
+    Y=[0,104,334,230,0,  -104,-334,-230,0,   60,60,0,0,  -60,-60,0,0]
+    Z=[20,20,20,20,20,  20,20,20,20,   20,20,20,20,  20,20,20,20]
 
+    #Make 3D plot of origonal XYZ data
+    ax.plot3D(X,Y,Z,'*-')
 
+    #Show 3d plot
+    plt.show()
+
+    # Put Tello into command mode
+    send("command", 3)
+
+    # Send the takeoff command
+    send("takeoff", 10)
+
+    #4 leaf clover
+    send("curve " + str(60) + " " + str(104) + " " + str(0) + " " + str(0) + " " + str(230) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(-60) + " " + str(-104) + " " + str(0) + " " + str(0) + " " +  str(-230) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(60) + " " + str(-104) + " " + str(0) + " " + str(0) + " " + str(-230) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(-60) + " " + str(104) + " " + str(0) + " " + str(0) + " " +  str(230) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(104) + " " + str(60) + " " + str(0) + " " + str(230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(-104) + " " + str(-60) + " " + str(0) + " " + str(-230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(-104) + " " + str(-60) + " " + str(0) + " " + str(-230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(104) + " " + str(60) + " " + str(0) + " " + str(230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+
+    # Land
+    send("land", 5)
+
+    # Print message
+    print("Mission completed successfully!")
+    
     return
 
 ##############################################
@@ -130,7 +170,7 @@ def receive():
             print("Error receiving: " + str(e))
             break
 
-if __name__ == "main":
+if __name__ == "__main__":
 
     # Create and start a listening thread that runs in the background
     # This utilizes our receive functions and will continuously monitor for incoming messages
@@ -141,11 +181,10 @@ if __name__ == "main":
     waypoints = [] # This will contain an array of Waypoint class objects
 
     # Execute the actual algorithm
-    ex_main_function(waypoints, sock)
+    #ex_main_function(waypoints, sock)
     main_function(waypoints, sock)
 
 
 
     # Close the socket
-    sock.close()
 
