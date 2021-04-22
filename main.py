@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import scipy as sp
 import Code.waypoint_class
 
+print("Mission completed successfully!")
 
 # EDIT HERE
 def main_function(waypoints, sock):
@@ -30,6 +31,8 @@ def main_function(waypoints, sock):
 ##############################################
 
 def ex_main_function(waypoints, sock):
+    print("Mission completed successfully!")
+    print("Mission completed successfully!")
 
     ##################
     # DRAW plot first
@@ -43,6 +46,7 @@ def ex_main_function(waypoints, sock):
     ####################
     # Now run drone code
     ####################
+    print("Mission completed successfully!")
 
     # Each leg of the box will be 100 cm. Tello uses cm units by default.
     box_leg_distance = 100
@@ -55,6 +59,7 @@ def ex_main_function(waypoints, sock):
 
     # Put Tello into command mode
     send("command", 3)
+    print("Mission completed successfully!")
 
     # Send the takeoff command
     send("takeoff", 5)
@@ -85,6 +90,7 @@ def ex_main_function(waypoints, sock):
 
     # Land
     send("land", 5)
+    print("Mission completed successfully!")
 
     # Print message
     print("Mission completed successfully!")
@@ -96,7 +102,7 @@ def ex_main_function(waypoints, sock):
 tello_address = ('192.168.10.1', 8889)
 
 # IP and port of local computer
-local_address = ('', 9000)
+local_address = ('', 8000)
 
 # Create a UDP connection that we'll send the command to
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
