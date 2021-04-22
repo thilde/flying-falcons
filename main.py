@@ -25,8 +25,8 @@ def main_function(waypoints, sock):
     ax = fig.add_subplot(111, projection='3d')
 
     # XYZ data to be graphed
-    X=[0, 0,-60,-60,0,0,  60,60,0,0,   104,334,230,0,  -104,-334,-230,0]
-    Y=[0, 0,104,334,230,0,  -104,-334,-230,0,   60,60,0,0,  -60,-60,0,0]
+    X=[0, 0,-15,-15,0,0,  15,15,0,0,   26,334,57.5,0,  -26,-334,-57.5,0]
+    Y=[0, 0,26,334,57.5,0,  -26,-334,-57.5,0,   15,15,0,0,  -15,-15,0,0]
     Z=[0, 20,20,20,20,20,  20,20,20,20,   20,20,20,20,  20,20,20,20]
 
     # Make 3D plot of origonal XYZ data
@@ -42,14 +42,14 @@ def main_function(waypoints, sock):
     send("takeoff", 10)
 
     # 4 leaf clover
-    send("curve " + str(60) + " " + str(104) + " " + str(0) + " " + str(0) + " " + str(230) + " " + str(0) + " " + str(60), 5)
-    send("curve " + str(-60) + " " + str(-104) + " " + str(0) + " " + str(0) + " " +  str(-230) + " " + str(0) + " " + str(60), 5)
-    send("curve " + str(60) + " " + str(-104) + " " + str(0) + " " + str(0) + " " + str(-230) + " " + str(0) + " " + str(60), 5)
-    send("curve " + str(-60) + " " + str(104) + " " + str(0) + " " + str(0) + " " +  str(230) + " " + str(0) + " " + str(60), 5)
-    send("curve " + str(104) + " " + str(60) + " " + str(0) + " " + str(230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
-    send("curve " + str(-104) + " " + str(-60) + " " + str(0) + " " + str(-230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
-    send("curve " + str(-104) + " " + str(-60) + " " + str(0) + " " + str(-230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
-    send("curve " + str(104) + " " + str(60) + " " + str(0) + " " + str(230) + " " + str(0) + " " + str(0) + " " + str(60), 5)
+    send("curve " + str(15) + " " + str(26) + " " + str(0) + " " + str(0) + " " + str(57.5) + " " + str(0) + " " + str(15), 5)
+    send("curve " + str(-15) + " " + str(-26) + " " + str(0) + " " + str(0) + " " +  str(-57.5) + " " + str(0) + " " + str(15), 5)
+    send("curve " + str(15) + " " + str(-26) + " " + str(0) + " " + str(0) + " " + str(-57.5) + " " + str(0) + " " + str(15), 5)
+    send("curve " + str(-15) + " " + str(26) + " " + str(0) + " " + str(0) + " " +  str(57.5) + " " + str(0) + " " + str(15), 5)
+    send("curve " + str(26) + " " + str(15) + " " + str(0) + " " + str(57.5) + " " + str(0) + " " + str(0) + " " + str(15), 5)
+    send("curve " + str(-26) + " " + str(-15) + " " + str(0) + " " + str(-57.5) + " " + str(0) + " " + str(0) + " " + str(15), 5)
+    send("curve " + str(-26) + " " + str(-15) + " " + str(0) + " " + str(-57.5) + " " + str(0) + " " + str(0) + " " + str(15), 5)
+    send("curve " + str(26) + " " + str(15) + " " + str(0) + " " + str(57.5) + " " + str(0) + " " + str(0) + " " + str(15), 5)
 
     # Land
     send("land", 5)
