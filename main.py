@@ -11,35 +11,28 @@ import numpy as np
 import sys
 import matplotlib.pyplot as plt
 import scipy as sp
-#import Code.waypoint_class
-
-print("Mission completed successfully!")
+import Code.waypoint_class
+import matplotlib.pyplot as plt
 
 # EDIT HERE
 def main_function(waypoints, sock):
 
-    # Insert your functions here. If you want to import additional functions that you've created, feel free to do so. However, make sure the 
+    # Insert your functions here. If you want to import additional functions that you've created, feel free to do so. However, make sure the
     # file paths still
-    import socket
-    import threading
-    import time
-    from mpl_toolkits.mplot3d import axes3d
-    import matplotlib.pyplot as plt
-    import numpy as np
 
-    #Set up 3 axies chart
+    # Set up 3 axies chart
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    #XYZ data to be graphed
-    X=[0,-60,-60,0,0,  60,60,0,0,   104,334,230,0,  -104,-334,-230,0]
-    Y=[0,104,334,230,0,  -104,-334,-230,0,   60,60,0,0,  -60,-60,0,0]
-    Z=[20,20,20,20,20,  20,20,20,20,   20,20,20,20,  20,20,20,20]
+    # XYZ data to be graphed
+    X=[0, 0,-60,-60,0,0,  60,60,0,0,   104,334,230,0,  -104,-334,-230,0]
+    Y=[0, 0,104,334,230,0,  -104,-334,-230,0,   60,60,0,0,  -60,-60,0,0]
+    Z=[0, 20,20,20,20,20,  20,20,20,20,   20,20,20,20,  20,20,20,20]
 
-    #Make 3D plot of origonal XYZ data
+    # Make 3D plot of origonal XYZ data
     ax.plot3D(X,Y,Z,'*-')
 
-    #Show 3d plot
+    # Show 3d plot
     plt.show()
 
     # Put Tello into command mode
@@ -48,7 +41,7 @@ def main_function(waypoints, sock):
     # Send the takeoff command
     send("takeoff", 10)
 
-    #4 leaf clover
+    # 4 leaf clover
     send("curve " + str(60) + " " + str(104) + " " + str(0) + " " + str(0) + " " + str(230) + " " + str(0) + " " + str(60), 5)
     send("curve " + str(-60) + " " + str(-104) + " " + str(0) + " " + str(0) + " " +  str(-230) + " " + str(0) + " " + str(60), 5)
     send("curve " + str(60) + " " + str(-104) + " " + str(0) + " " + str(0) + " " + str(-230) + " " + str(0) + " " + str(60), 5)
@@ -63,7 +56,7 @@ def main_function(waypoints, sock):
 
     # Print message
     print("Mission completed successfully!")
-    
+
     return
 
 ##############################################
@@ -71,8 +64,6 @@ def main_function(waypoints, sock):
 ##############################################
 
 def ex_main_function(waypoints, sock):
-    print("Mission completed successfully!")
-    print("Mission completed successfully!")
 
     ##################
     # DRAW plot first
@@ -86,7 +77,6 @@ def ex_main_function(waypoints, sock):
     ####################
     # Now run drone code
     ####################
-    print("Mission completed successfully!")
 
     # Each leg of the box will be 100 cm. Tello uses cm units by default.
     box_leg_distance = 100
@@ -99,7 +89,6 @@ def ex_main_function(waypoints, sock):
 
     # Put Tello into command mode
     send("command", 3)
-    print("Mission completed successfully!")
 
     # Send the takeoff command
     send("takeoff", 5)
@@ -130,11 +119,9 @@ def ex_main_function(waypoints, sock):
 
     # Land
     send("land", 5)
-    print("Mission completed successfully!")
 
     # Print message
     print("Mission completed successfully!")
-
 
     return
 
@@ -142,7 +129,7 @@ def ex_main_function(waypoints, sock):
 tello_address = ('192.168.10.1', 8889)
 
 # IP and port of local computer
-local_address = ('', 8000)
+local_address = ('', 9000)
 
 # Create a UDP connection that we'll send the command to
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -193,4 +180,4 @@ if __name__ == "__main__":
 
 
     # Close the socket
-
+    sock.close()
